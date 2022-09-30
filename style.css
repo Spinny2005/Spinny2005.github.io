@@ -1,6 +1,15 @@
 body {
     margin: 0;
-    background: black;
+    background: white;
     text-align: center;
     text-decoration-color: white;
+    font-family:'Times New Roman', Times, serif;
+    font-optical-sizing:inherit;
+    font-variant: small-caps;
+    font-stretch: wider;
+}
+h1 {
+    font-size: 40pt;
+    color: white;
+    background-color: black;
 }
