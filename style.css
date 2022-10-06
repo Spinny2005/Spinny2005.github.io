@@ -1,15 +1,19 @@
 body {
     margin: 0;
-    background: white;
-    text-align: center;
+    background:rgb(3, 13, 58);
+    text-align:left;
     text-decoration-color: white;
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-optical-sizing:inherit;
-    font-variant: small-caps;
-    font-stretch: wider;
+    font-variant:small-caps;
+    font-stretch:wider;
 }
 h1 {
     font-size: 40pt;
     color: white;
     background-color: black;
+}
+h2 {
+    font-size: 25pt;
+    color: white;
 }
