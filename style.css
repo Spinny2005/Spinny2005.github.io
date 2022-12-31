@@ -27,8 +27,8 @@
 
 body {
 	margin: 0px 0px 0px 0px;
-	color: black;
-	background-color: white;
+	color: #e8e6e3;
+	background-color: #181a1b;
 }
 
 header {
@@ -92,8 +92,9 @@ header a {
 header a:hover {
 	color: black;
 	background-color: white;
-	padding: 10px 10px;
+	padding: 5px 10px;
 	padding-left: 14px;
+	padding-bottom: 7px;
 }
 
 h2 {
@@ -102,6 +103,16 @@ h2 {
 	align-items: center;
 	font-size: 32px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	letter-spacing: 5px;
+}
+
+h3 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 25px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	letter-spacing: 5px;
 }
 
 p {
@@ -128,17 +139,44 @@ li h3 {
 img {
 	padding: 10px 10px;
 	size: 50px;
-}
-
-img:hover {
-	background-color: white;
-	padding: 10px 10px;
+	position: relative;
 }
 
 main ul {
-	margin-right: 2%;
+	margin-right: 17%;
+	margin-left: 15%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
+}
+
+.circle-container {
+	position: relative;
+	z-index: 1;
+}
+
+.circle-container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: white;
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.circle-container:hover::before {
+	opacity: 1;
+}
+
+.rounded-bg-list {
+	margin-left: 17%;
+	list-style: none;
+	background-color: rgb(3, 3, 3);
+	border-radius: 10px;
+	padding: 20px;
 }
