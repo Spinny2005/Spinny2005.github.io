@@ -30,7 +30,9 @@ header {
 }
 
 h1 {
-	margin-left: 20px;
+	margin-top: 33px;
+	margin-left: 16px;
+	margin-bottom: 33px;
 	animation-delay: 0.7s;
 	animation: fadeIn 1s ease-in-out;
 	letter-spacing: 30px;
