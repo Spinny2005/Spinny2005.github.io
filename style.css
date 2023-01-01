@@ -37,6 +37,22 @@ h1 {
 	font-stretch: ultra-expanded;
 }
 
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
 nav {
 	margin-top: -70px;
 	display: flex;
@@ -74,7 +90,7 @@ header a {
 	padding-left: 14px;
 }
 
-header a:hover {
+header li a:hover {
 	color: black;
 	background-color: white;
 	padding: 5px 10px;
