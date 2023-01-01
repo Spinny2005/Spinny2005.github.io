@@ -146,6 +146,7 @@ hr {
 .circle-container {
 	position: relative;
 	z-index: 1;
+	object-fit: cover;
 }
 
 .circle-container::before {
@@ -161,6 +162,7 @@ hr {
 	transition: all 0.3s ease-in-out;
 	display: flex;
 	flex-wrap: wrap;
+	object-fit: cover;
 }
 
 .circle-container:hover::before {
@@ -177,5 +179,17 @@ hr {
 	list-style: none;
 	background-color: rgb(3, 3, 3);
 	border-radius: 10px;
-	padding: 20px;
+	padding: 15px;
+}
+
+.rounded-bg-list-2 {
+	margin-left: 29.25%;
+	margin-right: 29.25%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	list-style: none;
+	background-color: rgb(3, 3, 3);
+	border-radius: 10px;
+	padding: 15px;
 }
