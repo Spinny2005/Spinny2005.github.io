@@ -28,6 +28,24 @@
 	}
 }
 
+@keyframes color-change {
+	from {
+		background-color: rgb(3, 3, 3);
+	}
+	to {
+		background-color: rgb(17, 17, 17);
+	}
+}
+
+@keyframes reverse-color-change {
+	from {	
+		background-color: rgb(17, 17, 17);
+	}
+	to {
+		background-color: rgb(3, 3, 3);
+	}
+}
+
 body {
 	margin: 0px 0px 0px 0px;
 	color: #e8e6e3;
