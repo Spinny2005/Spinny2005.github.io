@@ -30,3 +30,31 @@
 			<p>This project is intended to help you solve calculus problems that require you to use Euler's Method.
 			</p>
 		<br>
+		<form>
+			<input type="text" id="input-box" name="input-box"><br>
+			<button type="button" id="save-button">ENTER</button>
+		</form> 
+		<script>
+			const inputBox = document.getElementById('input-box');
+			const saveButton = document.getElementById('save-button');
+			saveButton.addEventListener('click', () => {
+			  	localStorage.setItem('input-value', inputBox.value);
+				console.log("Test");
+			  	for (let i = 0; i < localStorage.length; i++) {
+				
+				  	const key = localStorage.key(i);
+				  	const value = localStorage.getItem(key);
+				  	console.log(key + ": " + value);
+				}
+			});
+		</script>
+		<div id="display-area"></div>
+		<script>
+		  const displayArea = document.getElementById('display-area');
+		  saveButton.addEventListener('click', () => {
+			const value = inputBox.value;
+			displayArea.innerHTML = value;
+		  });
+		</script>
+	</main>
+</body>
