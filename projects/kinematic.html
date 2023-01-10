@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../style.css">
 	<link rel="icon" href="../icons/0.png">
-	<title>Spencer Boggs</title>
+	<title>Kinematic Equation Calculator</title>
 	<meta charset="utf-8">
 	<title>My Portfolio</title>
 </head>
@@ -28,6 +28,90 @@
 	<main>
 		<hr>
 		<h2>ABOUT THIS PROJECT</h2>
-			<p>This project is intended to help you solve physics problems that require you to use kinematic equations.
+			<p>This project is intended to help you solve physics problems that require you to use kinematic equations. Use ** for exponents.
 			</p>
 		<br>
+		<form>
+			<label>leave unknown values blank</label><br><br>
+			<label for="v-final-input">enter vfinal (v):</label>
+			<input type="text" id="v-final-input" name="v-final-input"><br>
+			<label for="v-initial-input">enter vinitial (v0):</label>
+			<input type="text" id="v-initial-input" name="v-initial-input"><br>
+			<label for="acceleration-input">enter acceleration (a):</label>
+			<input type="text" id="acceleration-input" name="acceleration-input"><br>
+			<label for="time-input">enter time (t):</label>
+			<input type="text" id="time-input" name="time-input"><br>
+			<label for="deltax-input">enter displacement (x-x0):</label>
+			<input type="text" id="deltax-input" name="deltax-input"><br>
+			<label for="deltax-input">enter variable to solve for:</label><br>
+			<label for="solve-input">(v, v0, a, t, x)</label>
+			<input type="text" id="solve-input" name="solve-input"><br>
+
+			<button type="button" id="save-button">ENTER</button>
+		</form> 
+		<hr>
+		<div class="rounded-bg-list-4">
+			<div id="display-area"><br></div>
+		</div>
+		<script>
+			const saveButton = document.getElementById('save-button');
+			const div = document.getElementById('display-area');
+			saveButton.addEventListener('click', () => {
+				div.innerHTML = ""
+				if (document.getElementById('v-final-input').value != '' && !isNaN(document.getElementById('v-final-input').value)) {
+					let Vfinal = document.getElementById('v-final-input').value;
+					div.innerHTML = div.innerHTML + " " + Vfinal
+				} else {
+					let Vfinal = 'u'
+					div.innerHTML = div.innerHTML + " " + Vfinal
+				}
+				if (document.getElementById('v-initial-input').value != '' && !isNaN(document.getElementById('v-initial-input').value)) {
+					let Vinitial = document.getElementById('v-initial-input').value;
+					div.innerHTML = div.innerHTML + " " + Vinitial
+				} else {
+					let Vinitial = 'u'
+					div.innerHTML = div.innerHTML + " " + Vinitial
+				}
+				if (document.getElementById('acceleration-input').value != '' && !isNaN(document.getElementById('acceleration-input').value)) {
+					let acceleration = document.getElementById('acceleration-input').value;
+					div.innerHTML = div.innerHTML + " " + acceleration
+				} else {
+					let acceleration = 'u'
+					div.innerHTML = div.innerHTML + " " + acceleration
+				}
+				if (document.getElementById('time-input').value != '' && !isNaN(document.getElementById('time-input').value)) {
+					let time = document.getElementById('time-input').value;
+					div.innerHTML = div.innerHTML + " " + time
+				} else {
+					let time = 'u'
+					div.innerHTML = div.innerHTML + " " + time
+				}
+				if (document.getElementById('deltax-input').value != '' && !isNaN(document.getElementById('deltax-input').value)) {
+					let deltaX = document.getElementById('deltax-input').value;
+					div.innerHTML = div.innerHTML + " " + deltaX
+				} else {
+					let deltaX = 'u'
+					div.innerHTML = div.innerHTML + " " + deltaX
+				}
+
+				let solveFor = document.getElementById('solve-input').value
+				solveFor = solveFor.toLowerCase();
+				if (solveFor != 'v' && solveFor != 'v0' && solveFor != 'a' && solveFor != 't' && solveFor != 'x') {
+					solveFor = null
+				} else {
+					solveFor = solveFor
+				}
+				
+
+				div.innerHTML = div.innerHTML + " " + solveFor
+				if (solveFor != null) {
+					div.innerHTML = div.innerHTML + " Working"
+
+				} else {
+					div.innerHTML = "Unsolveable. Please enter a valid variable to solve for."
+				}
+
+			});
+		</script>
+	</main>
+</body>

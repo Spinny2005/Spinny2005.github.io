@@ -8,7 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../style.css">
 	<link rel="icon" href="../icons/0.png">
+<<<<<<< HEAD
 	<title>Spencer Boggs</title>
+=======
+	<title>Euler's Method Calculator</title>
+>>>>>>> b3ab809bef74942a39b3c840532adbf59e10f0f8
 	<meta charset="utf-8">
 	<title>My Portfolio</title>
 </head>
@@ -50,7 +54,10 @@
 		</div>
 		<script>
 			let e = 2.7182818284
+<<<<<<< HEAD
 
+=======
+>>>>>>> b3ab809bef74942a39b3c840532adbf59e10f0f8
 			const saveButton = document.getElementById('save-button');
 			const div = document.getElementById('display-area');
 			saveButton.addEventListener('click', () => {
@@ -59,6 +66,7 @@
 				let stepCount = document.getElementById('stepCount-input').value;
 				let stepSize = document.getElementById('stepSize-input').value;
 				let derivative = document.getElementById('derivative-input').value;
+<<<<<<< HEAD
 				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
 					try {
 						x = String(x)
@@ -66,6 +74,17 @@
 						alert(derivative)
 						m = String(eval(derivative))
 						alert(m)
+=======
+				let j = 0
+				derivative = derivative.replace('^',"**")
+				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
+					try {
+						x = Number(x)
+						y = Number(y)
+						m = eval(derivative)
+						x = String(x)
+						y = String(y)
+>>>>>>> b3ab809bef74942a39b3c840532adbf59e10f0f8
 					} catch (error) {
 						derivative = 'u'
 					try {
@@ -95,6 +114,7 @@
 						while (i < stepCount) {
 							i++
 							let output = div.innerHTML + "---- Step " + (i) + " ----"
+<<<<<<< HEAD
 							output = output + "<br><br>Slope: " + m
 							let initialEquation = (m + " " + ' * x + ' + eval('(-x*m)+y'))
 
@@ -106,6 +126,30 @@
 						}
 						//let output = div.innerHTML + "<br>---- Test"
 						//div.innerHTML = "Valid Inputs y = " + y + " x = " + x + " stepCount = " + stepCount + " stepSize = " + stepSize + " derivative = " + derivative + " m = " + m
+=======
+
+							output = output + "<br><br>Slope: " + m
+							output = output + "<br><br>y - " + Number(y) + " = " + String(m) + "(x - " + String(x) + ")"
+
+							x = Number(x) + Number(stepSize)
+
+							let initialEquation = (String(m) + "x + " + eval(String(m) + "* -(" + eval(String(x) + "-" + String(stepSize)) + ") + " + String(y)))
+							let solvableEquation = ((Number(m) * Number(x)) + Number(m) * -(Number(x)-Number(stepSize)) + Number(y))
+
+							y = eval(solvableEquation)
+
+							output = output + "<br><br>Tangent Line Equation " + (i) + ": y = " + initialEquation
+							output = output + "<br><br>Y Coordinate after " + i + " step(s): " + String(y)
+							output = output + "<br><br>Coordinates: (" + String(x) + ", " + String(y) + ")"
+							div.innerHTML = output + "<br><br><br>"
+							
+							x = Number(x)
+							y = Number(y)
+							m = eval(derivative)
+							x = String(x)
+							y = String(y)
+						}
+>>>>>>> b3ab809bef74942a39b3c840532adbf59e10f0f8
 						div.innerHTML = output
 					} else {
 						div.innerHTML = "Invalid Inputs. Please enter numerical values. Use proper syntax for the derivative."
