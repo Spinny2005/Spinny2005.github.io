@@ -296,6 +296,40 @@ hr {
 	align-items: center;
 	list-style: none;
 	background-color: rgb(17, 17, 17);
+	border-color: white;
+	border-radius: 10px;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+	animation: color-change 0.3s ease-out forwards;
+}
+
+.rounded-bg-list-4 {
+	align-content: center;
+	padding-bottom: 200px;
+	margin-bottom: 200px;
+	margin-left: 10%;
+	margin-right: 10%;
+	align-items: center;
+	list-style: none;
+	background-color: rgb(3, 3, 3);
+	border-color: white;
+	border-radius: 10px;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+	animation: reverse-color-change 0.3s ease-in forwards;
+}
+
+.rounded-bg-list-4:hover {
+	align-content: center;
+	padding-bottom: 200px;
+	margin-bottom: 200px;
+	margin-left: 10%;
+	margin-right: 10%;
+	align-items: center;
+	list-style: none;
+	background-color: rgb(255, 0, 0);
 	border-radius: 10px;
 	padding: 15px;
 	color: white;
@@ -373,10 +407,31 @@ button[type=button] {
 	color: white;
 }
 
+button[type=button]:hover {
+	align-self: center;
+	align-items: center;
+	width: 100px;
+	font-size: 16px;
+	border: 2px solid rgb(63, 63, 63);
+	background-color: rgb(63, 63, 63);
+	border-radius: 5px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	display: block;
+	margin: auto;
+	color: white;
+	
+}
+
 label {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	font-variant: small-caps;
 	font-size: 20px;
 	letter-spacing: 2px;
 	margin-left: -10px;
+}
+
+div {
+	font-family: 'Courier New', Courier, monospace;
 }
