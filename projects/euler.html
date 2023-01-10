@@ -58,6 +58,8 @@
 				let stepCount = document.getElementById('stepCount-input').value;
 				let stepSize = document.getElementById('stepSize-input').value;
 				let derivative = document.getElementById('derivative-input').value;
+				let j = 0
+				derivative = derivative.replace('^',"**")
 				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
 					try {
 						x = Number(x)
