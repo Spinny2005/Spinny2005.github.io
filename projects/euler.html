@@ -50,7 +50,6 @@
 		</div>
 		<script>
 			let e = 2.7182818284
-
 			const saveButton = document.getElementById('save-button');
 			const div = document.getElementById('display-area');
 			saveButton.addEventListener('click', () => {
@@ -97,7 +96,6 @@
 							let output = div.innerHTML + "---- Step " + (i) + " ----"
 
 							output = output + "<br><br>Slope: " + m
-							//Point Slope
 							output = output + "<br><br>y - " + Number(y) + " = " + String(m) + "(x - " + String(x) + ")"
 
 							x = Number(x) + Number(stepSize)
@@ -118,8 +116,6 @@
 							x = String(x)
 							y = String(y)
 						}
-						//let output = div.innerHTML + "<br>---- Test"
-						//div.innerHTML = "Valid Inputs y = " + y + " x = " + x + " stepCount = " + stepCount + " stepSize = " + stepSize + " derivative = " + derivative + " m = " + m
 						div.innerHTML = output
 					} else {
 						div.innerHTML = "Invalid Inputs. Please enter numerical values. Use proper syntax for the derivative."
