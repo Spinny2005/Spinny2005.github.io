@@ -61,11 +61,11 @@
 				let derivative = document.getElementById('derivative-input').value;
 				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
 					try {
+						x = Number(x)
+						y = Number(y)
+						m = eval(derivative)
 						x = String(x)
 						y = String(y)
-						alert(derivative)
-						m = String(eval(derivative))
-						alert(m)
 					} catch (error) {
 						derivative = 'u'
 					try {
@@ -95,14 +95,28 @@
 						while (i < stepCount) {
 							i++
 							let output = div.innerHTML + "---- Step " + (i) + " ----"
-							output = output + "<br><br>Slope: " + m
-							let initialEquation = (m + " " + ' * x + ' + eval('(-x*m)+y'))
 
-							x = x + stepSize
-							y = eval(initialEquation)
+							output = output + "<br><br>Slope: " + m
+							//Point Slope
+							output = output + "<br><br>y - " + Number(y) + " = " + String(m) + "(x - " + String(x) + ")"
+
+							x = Number(x) + Number(stepSize)
+
+							let initialEquation = (String(m) + "x + " + eval(String(m) + "* -(" + eval(String(x) + "-" + String(stepSize)) + ") + " + String(y)))
+							let solvableEquation = ((Number(m) * Number(x)) + Number(m) * -(Number(x)-Number(stepSize)) + Number(y))
+
+							y = eval(solvableEquation)
 
 							output = output + "<br><br>Tangent Line Equation " + (i) + ": y = " + initialEquation
-							div.innerHTML = output + "<br><br>"
+							output = output + "<br><br>Y Coordinate after " + i + " step(s): " + String(y)
+							output = output + "<br><br>Coordinates: (" + String(x) + ", " + String(y) + ")"
+							div.innerHTML = output + "<br><br><br>"
+							
+							x = Number(x)
+							y = Number(y)
+							m = eval(derivative)
+							x = String(x)
+							y = String(y)
 						}
 						//let output = div.innerHTML + "<br>---- Test"
 						//div.innerHTML = "Valid Inputs y = " + y + " x = " + x + " stepCount = " + stepCount + " stepSize = " + stepSize + " derivative = " + derivative + " m = " + m
