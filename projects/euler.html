@@ -33,38 +33,88 @@
 		<br>
 		<form>
 			<label for="y-input">enter a y value on the function:</label>
-			<input type="text" id="y-input" name="input-box"><br>
+			<input type="text" id="y-input" name="y-input"><br>
 			<label for="x-input">enter a x value on the function:</label>
-			<input type="text" id="x-input" name="input-box"><br>
+			<input type="text" id="x-input" name="x-input"><br>
 			<label for="stepCount-input">enter the number of steps:</label>
-			<input type="text" id="stepCount-input" name="input-box"><br>
+			<input type="text" id="stepCount-input" name="stepCount-input"><br>
 			<label for="stepSize-input">enter the step size:</label>
-			<input type="text" id="stepSize-input" name="input-box"><br>
+			<input type="text" id="stepSize-input" name="stepSize-input"><br>
 			<label for="derivative-input">enter the derivative of the function:</label>
-			<input type="text" id="derivative-input" name="input-box"><br>
+			<input type="text" id="derivative-input" name="derivative-input"><br>
 			<button type="button" id="save-button">ENTER</button>
 		</form> 
+		<hr>
+		<div class="rounded-bg-list-4">
+			<div id="display-area"><br></div>
+		</div>
 		<script>
-			let y = document.getElementById('y-input');
-			let x = document.getElementById('x-input');
-			let stepCount = document.getElementById('stepCount-input');
-			let stepSize = document.getElementById('stepSize-input');
-			let derivative = document.getElementById('derivative-input');
-			
+			let e = 2.7182818284
+
 			const saveButton = document.getElementById('save-button');
 			const div = document.getElementById('display-area');
 			saveButton.addEventListener('click', () => {
-				div.textContent = "Hello!"
+				let y = document.getElementById('y-input').value;
+				let x = document.getElementById('x-input').value;
+				let stepCount = document.getElementById('stepCount-input').value;
+				let stepSize = document.getElementById('stepSize-input').value;
+				let derivative = document.getElementById('derivative-input').value;
+				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
+					try {
+						x = String(x)
+						y = String(y)
+						alert(derivative)
+						m = String(eval(derivative))
+						alert(m)
+					} catch (error) {
+						derivative = 'u'
+					try {
+						y = Number(y)
+					} catch (error) {
+						y = 'u'
+					}
+					try {
+						x = Number(x)
+					} catch (error) {
+						x = 'u'
+					}
+					try {
+						stepCount = Number(stepCount)
+					} catch (error) {
+						stepCount = 'u'
+					}
+					try {
+						stepSize = Number(stepSize)
+					} catch (error) {
+						stepSize = 'u'
+					}
+					}
+					if (!isNaN(y) && !isNaN(x) && !isNaN(stepCount) && !isNaN(stepSize) && !isNaN(m)) {
+						div.innerHTML = ""
+						let i = 0
+						while (i < stepCount) {
+							i++
+							let output = div.innerHTML + "---- Step " + (i) + " ----"
+							output = output + "<br><br>Slope: " + m
+							let initialEquation = (m + " " + ' * x + ' + eval('(-x*m)+y'))
+
+							x = x + stepSize
+							y = eval(initialEquation)
+
+							output = output + "<br><br>Tangent Line Equation " + (i) + ": y = " + initialEquation
+							div.innerHTML = output + "<br><br>"
+						}
+						//let output = div.innerHTML + "<br>---- Test"
+						//div.innerHTML = "Valid Inputs y = " + y + " x = " + x + " stepCount = " + stepCount + " stepSize = " + stepSize + " derivative = " + derivative + " m = " + m
+						div.innerHTML = output
+					} else {
+						div.innerHTML = "Invalid Inputs. Please enter numerical values. Use proper syntax for the derivative."
+					}
+				} else {
+					div.innerHTML = "Invalid Inputs. Please enter numerical values. Use proper syntax for the derivative."
+				}
 			});
 
-		</script>
-		<div class="rounded-bg-list-3" id="display-area"></div>
-		<script>
-		  const displayArea = document.getElementById('display-area');
-		  saveButton.addEventListener('click', () => {
-			const value = inputBox.value;
-			displayArea.innerHTML = value;
-		  });
 		</script>
 	</main>
 </body>
