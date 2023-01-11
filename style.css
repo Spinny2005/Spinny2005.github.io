@@ -408,7 +408,7 @@ input[type=text] {
 	margin: auto;
 	color: white;
 }
-  
+
 button[type=button] {
 	align-self: center;
 	align-items: center;
@@ -439,7 +439,7 @@ button[type=button]:hover {
 	display: block;
 	margin: auto;
 	color: white;
-	
+
 }
 
 label {
@@ -452,4 +452,34 @@ label {
 
 div {
 	font-family: 'Courier New', Courier, monospace;
+}
+
+.animated-div-left {
+	animation: slide-in-from-left 1s ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide-in-from-left {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.animated-div-right {
+	animation: slide-in-from-right 1s ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide-in-from-right {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
 }
