@@ -337,6 +337,7 @@ hr {
 	animation: color-change 0.3s ease-out forwards;
 }
 
+
 div.rounded-bg-list-3:hover h3.expand-text {
 	animation: expand-letter-spacing 0.5s ease-out forwards;
 }
@@ -347,6 +348,22 @@ div.rounded-bg-list-3 h3.expand-text {
 
 div h3.expand-text {
 	animation-fill-mode: forwards;
+}
+
+.rounded-bg-list-5 {
+	align-content: center;
+	margin-top: -20px;
+	margin-left: 44.5%;
+	margin-right: 45%;
+	margin-bottom: 20px;
+	align-items: center;
+	list-style: none;
+	background-color: rgb(3, 3, 3);
+	border-radius: 10px;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+	animation: reverse-color-change 0.3s ease-in forwards;
 }
 
 footer p {
@@ -373,6 +390,7 @@ a:active {
 
 form {
 	text-align: center;
+	margin-left: -10px;
 }
 
 input[type=text] {
