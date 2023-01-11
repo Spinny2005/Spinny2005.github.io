@@ -351,18 +351,24 @@ hr {
 div.rounded-bg-list-3:hover h3.expand-text {
     align-content: center;
     align-self: center;
+	display: flex;
+	flex-direction: wrap;
 	animation: expand-letter-spacing 0.5s ease-out forwards;
 }
 
 div.rounded-bg-list-3 h3.expand-text {
     align-content: center;
     align-self: center;
+	display: flex;
+	flex-direction: wrap;
 	animation: shrink-letter-spacing 0.5s ease-in forwards;
 }
 
 div h3.expand-text {
     align-content: center;
     align-self: center;
+	display: flex;
+	flex-direction: wrap;
 	animation-fill-mode: forwards;
 }
 
