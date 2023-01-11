@@ -190,9 +190,32 @@
 				<a href="projects/chords.html">
 					<div class="rounded-bg-list-3">
 						<h3 class="expand-text">MUSICAL CHORDS GAME</h3>
-						<p>a fun game thats tests you on your knowledge of the notes in different chords</p>
+						<p>a game thats tests you on your knowledge of the notes in different chords</p>
 					</div>
 				</a>
+			</a>
+			<h2>BIG PROJECTS</h2>
+			<a>
+				<a>
+					<div class="rounded-bg-list-3" id="my-website-click">
+						<h3 class="expand-text" id="my-website">MY WEBSITE</h3>
+						<p id="website-desc">my website that features my dumb and fun projects</p>
+					</div>
+				</a>
+				<script>
+					const clickArea = document.getElementById("my-website-click");
+					const myWebsite = document.getElementById("my-website");
+					const myWebsiteDesc = document.getElementById("website-desc");
+					clickArea.addEventListener("click", function() {
+						myWebsite.innerHTML = "BRUH";
+						myWebsiteDesc.innerHTML = "you're already on it..."
+						let myTimeout = setTimeout(resetFunction, 3000);
+						function resetFunction() {
+							myWebsite.innerHTML = "MY WEBSITE";
+							myWebsiteDesc.innerHTML = "my website that features my dumb and fun projects";
+						}
+					});
+				</script>
 			</a>
 		</section>
 		<br>
