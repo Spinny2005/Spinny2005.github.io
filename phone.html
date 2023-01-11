@@ -14,23 +14,34 @@
 
 <body>
     <script defer>
-        let details = navigator.userAgent;
-        let regexp = /android|iphone|kindle|ipad/i;
-        let isMobileDevice = regexp.test(details);
-        if (!isMobileDevice) {
-            window.onload = function () {
-                window.location.replace((document.URL).replace("phone.html", "index.html"));
-            }
-        } 
+        //let details = navigator.userAgent;
+        //let regexp = /android|iphone|kindle|ipad/i;
+        //let isMobileDevice = regexp.test(details);
+        //if (!isMobileDevice) {
+        //    window.onload = function () {
+        //        window.location.replace((document.URL).replace("phone.html", "index.html"));
+        //    }
+        //} 
     </script>
     <header>
         <a href="https://github.com/Spinny2005" target="_blank" rel="noopener noreferrer">
-            <h1>spencer boggs</h1>
+            <h1>spencer</h1>
+            <h1 class="h1-edit">boggs</h1>
         </a>
         <nav>
             <ul>
+                <br><br>
                 <li><a href="#about">ABOUT ME</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul>
+                <br><br>
                 <li><a href="#projects">MY PROJECTS</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
