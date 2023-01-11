@@ -1,4 +1,3 @@
-
 <html lang="en">
 <!DOCTYPE html>
 <html>
@@ -21,9 +20,9 @@
 
         let isMobileDevice = regexp.test(details);
 
-        if (isMobileDevice) {
+        if (!isMobileDevice) {
             window.onload = function () {
-                window.location.replace((document.URL).replace("index.html", "phone.html"));
+                window.location.replace((document.URL).replace("phone.html", "index.html"));
             }
         } 
     </script>
