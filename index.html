@@ -20,7 +20,7 @@
 
 		let isMobileDevice = regexp.test(details);
 
-		if (!isMobileDevice) {
+		if (isMobileDevice) {
 			window.onload = function () {
 				window.location.replace((document.URL).replace("index.html", "phone.html"));
 			}
