@@ -13,6 +13,16 @@
 </head>
 
 <body>
+	<script defer>
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+        if (isMobileDevice) {
+            window.onload = function () {
+                window.location.href = (document.URL).replace("/projects/", "/mobile/phone-");
+            }
+        } 
+    </script>
 	<header>
 		<a href="../index.html">
 			<h1>kinematic equation calculator</h1>
