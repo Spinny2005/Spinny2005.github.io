@@ -19,13 +19,17 @@
 		let regexp = /android|iphone|kindle|ipad/i;
 
 		let isMobileDevice = regexp.test(details);
-
-		if (isMobileDevice) {
-			window.onload = function () {
+		window.onload = setTimeout(startRedirectCheck, 1000);
+		function startRedirectCheck() {
+			if (!isMobileDevice) {
+			window.onload = setTimeout(redirectFunction, 1000);
+			function redirectFunction() {
 				window.location.href = (document.URL).replace("index.html", "phone.html");
-				let myTimeout = setTimeout(resetFunction, 3000);
+				setTimeout(startRedirectCheck, 1000);
 			}
 		} 
+		}
+
 	</script>
 	<header>
 		<a href="https://github.com/Spinny2005" target="_blank" rel="noopener noreferrer">
