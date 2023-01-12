@@ -508,6 +508,7 @@ div {
 .animated-div-left {
 	animation: slide-in-from-left 1s ease-in-out;
 	animation-fill-mode: forwards;
+	margin-bottom: -30px;
 }
 
 @keyframes slide-in-from-left {
@@ -523,6 +524,7 @@ div {
 .animated-div-right {
 	animation: slide-in-from-right 1s ease-in-out;
 	animation-fill-mode: forwards;
+	margin-bottom: -30px;
 }
 
 @keyframes slide-in-from-right {
