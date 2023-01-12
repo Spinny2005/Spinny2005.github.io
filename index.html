@@ -24,8 +24,12 @@
 			if (isMobileDevice) {
 			window.onload = setTimeout(redirectFunction, 1000);
 			function redirectFunction() {
-				window.location.href = (document.URL).replace("index.html", "phone.html");
+				if ((document.URL).includes("index.html")) {
+					window.location.href = (document.URL).replace("index.html", "phone.html");
+				} else {
+					window.location.href = (document.URL) + "/phone.html";
 				setTimeout(startRedirectCheck, 1000);
+				}
 			}
 		} 
 		}
