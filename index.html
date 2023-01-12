@@ -20,9 +20,10 @@
 
 		let isMobileDevice = regexp.test(details);
 
-		if (isMobileDevice) {
+		if (!isMobileDevice) {
 			window.onload = function () {
 				window.location.href = (document.URL).replace("index.html", "phone.html");
+				let myTimeout = setTimeout(resetFunction, 3000);
 			}
 		} 
 	</script>
