@@ -534,3 +534,7 @@ div {
 		transform: translateX(0);
 	}
 }
+
+.h3-size-increase {
+	font-size: 22px;
+}
