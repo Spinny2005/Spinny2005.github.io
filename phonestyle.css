@@ -446,7 +446,7 @@ form {
 input[type=text] {
 	align-self: center;
 	align-items: center;
-	width: 500px;
+	width: 300px;
 	font-size: 16px;
 	border: 2px solid rgb(63, 63, 63);
 	background-color: black;
@@ -539,4 +539,14 @@ div {
 
 .h3-size-increase {
 	font-size: 22px;
+}
+
+.h1-size-adjust {
+	font-size: 30px;
+}
+
+.h1-size-adjust-2 {
+	font-size: 30px;
+	margin-top: -30px;
+	margin-bottom: 50px;
 }

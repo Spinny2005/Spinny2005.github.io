@@ -1,0 +1,99 @@
+<html lang="en">
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Subpage for Quadratic Formula Solver">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../phonestyle.css">
+	<link rel="icon" href="../icons/0.png">
+	<title>Quadratic Formula Calculator</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+    <script defer>
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+        if (!isMobileDevice) {
+            window.onload = function () {
+                window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
+            }
+        } 
+    </script>
+	<header>
+		<a href="../index.html">
+			<h1 class="h1-size-adjust">quadratic formula</h1>
+            <h1 class="h1-size-adjust-2">calculator</h1>
+		</a>
+		<h2>created by spencer boggs</h2>
+		<nav>
+			<ul>
+				<li><a href="../index.html">BACK</a></li>
+                <li><a href="https://github.com/Spinny2005/QuadraticFormula" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<hr>
+		<h2>ABOUT THIS PROJECT</h2>
+			<p>This project is intended to help you solve any problem that requires you to use the Quadratic Formula.
+			</p>
+		<br>
+		<form>
+			<label>equation: ax^2 + bx + c</label><br><br>
+			<label for="a-input">enter a:</label>
+			<input type="text" id="a-input" name="a-input"><br>
+			<label for="b-input">enter b:</label>
+			<input type="text" id="b-input" name="b-input"><br>
+			<label for="c-input">enter c:</label>
+			<input type="text" id="c-input" name="c-input"><br>
+
+			<button type="button" id="save-button">ENTER</button>
+		</form> 
+		<hr>
+		<div class="rounded-bg-list-4">
+			<div id="display-area"><br></div>
+		</div>
+		<script>
+			const saveButton = document.getElementById('save-button');
+			const div = document.getElementById('display-area');
+			saveButton.addEventListener('click', () => {
+				div.innerHTML = ""
+				let a = document.getElementById('a-input').value;
+				let b = document.getElementById('b-input').value;
+				let c = document.getElementById('c-input').value;
+				if (isNaN(a) || isNaN(b) || isNaN(c)) {
+					div.innerHTML = "Please enter a value for all three variables."
+				} else {
+					div.innerHTML += "Equation: (-" + String(b) + " +- sqrt(" + String(b) + "^2 - 4(" + String(a) + ")(" + String(c) + "))) / 2(" + String(a) + ")<br><br>"
+					var negativeInSqrt
+					if ((b * b - 4 * a * c) >= 0) {
+						solvedSqrt = Math.sqrt(b * b - 4 * a * c)
+						negativeInSqrt = false
+					} else {
+						let negativeValue = Math.abs(b * b - 4 * a * c)
+						solvedSqrt = "i*sqrt(" + String(negativeValue) + ")"
+						negativeInSqrt = true
+					}
+
+					if (negativeInSqrt == false) {
+						let x1Real = (-b + solvedSqrt) / (2 * a)
+						let x2Real = (-b - solvedSqrt) / (2 * a)
+						let x1 = "(-" + String(b) + " + " + String(solvedSqrt) + ") / " + String(2 * Number(a))
+						let x2 = "(-" + String(b) + " - " + String(solvedSqrt) + ") / " + String(2 * Number(a))
+						div.innerHTML += "Plus Sqrt: x = " + String(x1) + " = " + String(x1Real) + "<br><br>Minus Sqrt: x = " + String(x2) + " = " + String(x2Real)
+					} else if (negativeInSqrt == true) {
+						let x1 = "(-" + String(b) + " + " + String(solvedSqrt) + ") / " + String(2 * Number(a))
+						let x2 = "(-" + String(b) + " - " + String(solvedSqrt) + ") / " + String(2 * Number(a))
+						div.innerHTML += "Plus Sqrt: x = " + String(x1) + "<br><br>Minus Sqrt: x = " + String(x2)	
+					}
+					
+					
+				}
+			});
+		</script>
+	</main>
+</body>

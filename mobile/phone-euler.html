@@ -1,0 +1,143 @@
+<html lang="en">
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Subpage for Euler's Method Solver">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../phonestyle.css">
+	<link rel="icon" href="../icons/0.png">
+	<title>Euler's Method Calculator</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<script defer>
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+        if (!isMobileDevice) {
+            window.onload = function () {
+                window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
+            }
+        } 
+    </script>
+	<header>
+		<a href="../index.html">
+			<h1 class="h1-size-adjust">euler's method</h1>
+			<h1 class="h1-size-adjust-2">calculator</h1>
+		</a>
+		<h2>created by spencer boggs</h2>
+		<nav>
+			<ul>
+				<li><a href="../index.html">BACK</a></li>
+                <li><a href="https://github.com/Spinny2005/EulerSolver" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<hr>
+		<h2>ABOUT THIS PROJECT</h2>
+			<p>This project is intended to help you solve calculus problems that require you to use Euler's Method.
+			</p>
+		<br>
+		<form>
+			<label for="y-input">y value on the function:</label>
+			<input type="text" id="y-input" name="y-input"><br>
+			<label for="x-input">x value on the function:</label>
+			<input type="text" id="x-input" name="x-input"><br>
+			<label for="stepCount-input">number of steps:</label>
+			<input type="text" id="stepCount-input" name="stepCount-input"><br>
+			<label for="stepSize-input">step size:</label>
+			<input type="text" id="stepSize-input" name="stepSize-input"><br>
+			<label for="derivative-input">derivative of the function:</label>
+			<input type="text" id="derivative-input" name="derivative-input"><br>
+			<button type="button" id="save-button">ENTER</button>
+		</form> 
+		<hr>
+		<div class="rounded-bg-list-4">
+			<div id="display-area"><br></div>
+		</div>
+		<script>
+			let e = 2.7182818284
+			const saveButton = document.getElementById('save-button');
+			const div = document.getElementById('display-area');
+			saveButton.addEventListener('click', () => {
+				let y = document.getElementById('y-input').value;
+				let x = document.getElementById('x-input').value;
+				let stepCount = document.getElementById('stepCount-input').value;
+				let stepSize = document.getElementById('stepSize-input').value;
+				let derivative = document.getElementById('derivative-input').value;
+				let j = 0
+				derivative = derivative.replace('^',"**")
+				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
+					try {
+						x = Number(x)
+						y = Number(y)
+						m = eval(derivative)
+						x = String(x)
+						y = String(y)
+					} catch (error) {
+						derivative = 'u'
+					try {
+						y = Number(y)
+					} catch (error) {
+						y = 'u'
+					}
+					try {
+						x = Number(x)
+					} catch (error) {
+						x = 'u'
+					}
+					try {
+						stepCount = Number(stepCount)
+					} catch (error) {
+						stepCount = 'u'
+					}
+					try {
+						stepSize = Number(stepSize)
+					} catch (error) {
+						stepSize = 'u'
+					}
+					}
+					if (!isNaN(y) && !isNaN(x) && !isNaN(stepCount) && !isNaN(stepSize) && !isNaN(m)) {
+						div.innerHTML = ""
+						let i = 0
+						while (i < stepCount) {
+							i++
+							let output = div.innerHTML + "---- Step " + (i) + " ----"
+
+							output = output + "<br><br>Slope: " + m
+							output = output + "<br><br>y - " + Number(y) + " = " + String(m) + "(x - " + String(x) + ")"
+
+							x = Number(x) + Number(stepSize)
+
+							let initialEquation = (String(m) + "x + " + eval(String(m) + "* -(" + eval(String(x) + "-" + String(stepSize)) + ") + " + String(y)))
+							let solvableEquation = ((Number(m) * Number(x)) + Number(m) * -(Number(x)-Number(stepSize)) + Number(y))
+
+							y = eval(solvableEquation)
+
+							output = output + "<br><br>Tangent Line Equation " + (i) + ": y = " + initialEquation
+							output = output + "<br><br>Y Coordinate after " + i + " step(s): " + String(y)
+							output = output + "<br><br>Coordinates: (" + String(x) + ", " + String(y) + ")"
+							div.innerHTML = output + "<br><br><br>"
+							
+							x = Number(x)
+							y = Number(y)
+							m = eval(derivative)
+							x = String(x)
+							y = String(y)
+						}
+						div.innerHTML = output
+					} else {
+						div.innerHTML = "Invalid Inputs. Please enter numerical values. Use proper syntax for the derivative."
+					}
+				} else {
+					div.innerHTML = "Invalid Inputs. Please enter numerical values. Use proper syntax for the derivative."
+				}
+			});
+
+		</script>
+	</main>
+</body>

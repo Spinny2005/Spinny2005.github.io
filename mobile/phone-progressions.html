@@ -1,0 +1,80 @@
+<html lang="en">
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Subpage for Chord Progression Generator">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../phonestyle.css">
+	<link rel="icon" href="../icons/0.png">
+	<title>Chord Progression Generator</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+    <script defer>
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+        if (!isMobileDevice) {
+            window.onload = function () {
+                window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
+            }
+        } 
+    </script>
+	<header>
+		<a href="../index.html">
+			<h1 class="h1-size-adjust">chord progression</h1>
+            <h1 class="h1-size-adjust-2">generator</h1>
+		</a>
+		<h2>created by spencer boggs</h2>
+		<nav>
+			<ul>
+				<li><a href="../index.html">BACK</a></li>
+                <li><a href="https://github.com/Spinny2005/RandomChordProgressions" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<hr>
+		<h2>ABOUT THIS PROJECT</h2>
+			<p>This project is designed to help musicians practice their chords by generating random chord progressions.
+			</p>
+		<br>
+        <form>
+			<label for="chords-input">enter amount of chords:</label>
+            <input type="text" id="chords-input" name="chords-input"><br>
+            <button type="button" id="save-button">GO</button>
+		</form> 
+		<hr>
+		<div class="rounded-bg-list-4">
+			<div id="display-area"><br></div>
+		</div>
+		<script>
+			const saveButton = document.getElementById('save-button');
+			const div = document.getElementById('display-area');
+			saveButton.addEventListener('click', () => {
+                let array = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+                let extraNotes = ["maj7", "min7", "7", "min7b5", "dim7", "6", "6/9", "min6", "9", "maj9", "min9"]
+                let finalChords = []
+                var chord
+                function random_extra_notes() {
+                    chord  = extraNotes[Math.floor(Math.random() * 10)]
+                    return chord
+                } 
+                let chordAmount = document.getElementById('chords-input').value;
+                if (chordAmount == "") {
+                    chordAmount = 4
+                }
+                for (let i = 0; i < chordAmount; i++) {
+                    let randomChord = array[Math.floor(Math.random() * 11)]
+                    let randomExtraNotes = random_extra_notes()
+                    let finalChord = randomChord + randomExtraNotes
+                    finalChords.push(finalChord)
+                }
+                div.innerHTML = finalChords.join(" - ")
+            });
+		</script>
+	</main>
+</body>

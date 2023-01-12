@@ -1,0 +1,159 @@
+<html lang="en">
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Subpage for Musical Chords Game">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../phonestyle.css">
+	<link rel="icon" href="../icons/0.png">
+	<title>Musical Chords Game</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+    <script defer>
+        let details = navigator.userAgent;
+        let regexp = /android|iphone|kindle|ipad/i;
+        let isMobileDevice = regexp.test(details);
+        if (!isMobileDevice) {
+            window.onload = function () {
+                window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
+            }
+        } 
+    </script>
+	<header>
+		<a href="../index.html">
+			<h1 class="h1-size-adjust">musical chords</h1>
+            <h1 class="h1-size-adjust-2">game</h1>
+		</a>
+		<h2>created by spencer boggs</h2>
+		<nav>
+			<ul>
+				<li><a href="../index.html">BACK</a></li>
+                <li><a href="https://github.com/Spinny2005/ChordGame" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<hr>
+		<h2>ABOUT THIS PROJECT</h2>
+			<p>This project is designed to help musicians learn their chords by testing to see if they correctly type the notes in each chord.
+			</p>
+		<br>
+        <form>
+			<label>enter the notes of the chord</label><br>
+            <label>seperate the notes with spaces</label><br><br>
+			<button type="button" id="start-button">START</button><br>
+		</form> 
+        <div class="rounded-bg-list-5">
+			<div id="display-area"><br></div>
+		</div>
+        <form>
+			<label for="notes-input">enter notes:</label>
+            <input type="text" id="notes-input" name="notes-input"><br>
+			<button type="button" id="save-button">CHECK</button>
+        </form>
+        <div id="display-area-1"><br></div>
+        <script>
+			const startButton = document.getElementById('start-button');
+			const saveButton = document.getElementById('save-button');
+			const div = document.getElementById('display-area');
+			const div1 = document.getElementById('display-area-1');
+            const input = document.getElementById('notes-input');
+            var randomExtra
+            var note1
+            var noteb2
+            var note2
+            var noteb3
+            var note3
+            var note4
+            var noteb5
+            var note5
+            var noteb6
+            var note6
+            var noteb7
+            var note7
+            var extraNotes
+            startButton.addEventListener('click', Respond);
+            function Respond() {
+                let array = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+                extraNotes = ["maj7", "min7", "7", "min7b5", "dim7", "6", "6/9", "min6", "maj9", "min9"]
+                let finalChords = []
+                let randomValue = Math.floor(Math.random() * 12)
+                function random_extra_notes() {
+                    let chord = extraNotes[Math.floor(Math.random() * 10)]
+                    return chord
+                }
+                let selected = []
+                selected = array[randomValue]
+                randomExtra = random_extra_notes()
+                let combinedChords = selected + randomExtra
+                note1 = selected
+                noteb2 = array[randomValue + 1]
+                note2 = array[randomValue + 2]
+                noteb3 = array[randomValue + 3]
+                note3 = array[randomValue + 4]
+                note4 = array[randomValue + 5]
+                noteb5 = array[randomValue + 6]
+                note5 = array[randomValue + 7]
+                noteb6 = array[randomValue + 8]
+                note6 = array[randomValue + 9]
+                noteb7 = array[randomValue + 10]
+                note7 = array[randomValue + 11]
+                div.innerHTML = "<h3>" + combinedChords + "</h3>"
+                startButton.innerHTML = "<br>"
+                startButton.removeEventListener('click', Respond)
+            }
+            saveButton.addEventListener('click', () => {
+                let correctAnswer
+                if (randomExtra == extraNotes[0]) {
+                    correctAnswer = note1 + " " + note3 + " " + note5 + " " + note7
+                }
+                else if (randomExtra == extraNotes[1]) {
+                    correctAnswer = note1 + " " + noteb3 + " " + note5 + " " + noteb7
+                }
+                else if (randomExtra == extraNotes[2]) {
+                    correctAnswer = note1 + " " + note3 + " " + note5 + " " + noteb7
+                }
+                else if (randomExtra == extraNotes[3]) {
+                    correctAnswer = note1 + " " + noteb3 + " " + noteb5 + " " + noteb7
+                }
+                else if (randomExtra == extraNotes[4]) {
+                    correctAnswer = note1 + " " + noteb3 + " " + noteb5 + " " + note6
+                }
+                else if (randomExtra == extraNotes[5]) {
+                    correctAnswer = note1 + " " + note3 + " " + note5 + " " + note6
+                }
+                else if (randomExtra == extraNotes[6]) {
+                    correctAnswer = note1 + " " + note3 + " " + note5 + " " + note6 + " " + note2
+                }
+                else if (randomExtra == extraNotes[7]) {
+                    correctAnswer = note1 + " " + noteb3 + " " + note5 + " " + note6
+                }
+                else if (randomExtra == extraNotes[8]) {
+                    correctAnswer = note1 + " " + note3 + " " + note5 + " " + note7 + " " + note2
+                }
+                else if (randomExtra == extraNotes[9]) {
+                    correctAnswer = note1 + " " + noteb3 + " " + note5 + " " + noteb7 + " " + note2
+                }
+                
+                
+                let Answer = document.getElementById('notes-input').value;
+                Answer = Answer.replace("Bb", "A#")
+                Answer = Answer.replace("Db", "C#")
+                Answer = Answer.replace("Eb", "D#")
+                Answer = Answer.replace("Gb", "F#")
+                Answer = Answer.replace("Ab", "G#")
+                if (Answer == correctAnswer) {
+                    div1.innerHTML = "<h3>CORRECT</h3>"
+                    startButton.innerHTML = "NEXT"
+                    startButton.addEventListener('click', Respond);
+                    input.value = ""
+                }
+                else {
+                    div1.innerHTML = "<h3>INCORRECT</h3>"
+                }
+            })
+        </script>
