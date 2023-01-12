@@ -21,7 +21,7 @@
 		let isMobileDevice = regexp.test(details);
 		window.onload = setTimeout(startRedirectCheck, 1000);
 		function startRedirectCheck() {
-			if (!isMobileDevice) {
+			if (isMobileDevice) {
 			window.onload = setTimeout(redirectFunction, 1000);
 			function redirectFunction() {
 				window.location.href = (document.URL).replace("index.html", "phone.html");
