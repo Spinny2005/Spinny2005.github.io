@@ -19,19 +19,18 @@
 		let regexp = /android|iphone|kindle|ipad/i;
 
 		let isMobileDevice = regexp.test(details);
-		window.onload = setTimeout(startRedirectCheck, 1000);
+		window.onload = setTimeout(startRedirectCheck, 100);
 		function startRedirectCheck() {
 			if (isMobileDevice) {
-			window.onload = setTimeout(redirectFunction, 1000);
-			function redirectFunction() {
-				if ((document.URL).includes("index.html")) {
-					window.location.href = (document.URL).replace("index.html", "phone.html");
-				} else {
-					window.location.href = (document.URL) + "/phone.html";
-				setTimeout(startRedirectCheck, 1000);
+				window.onload = setTimeout(redirectFunction, 100);
+				function redirectFunction() {
+					if ((document.URL).includes("index.html")) {
+						window.location.href = (document.URL).replace("index.html", "phone.html");
+					} else {
+						window.location.href = (document.URL) + "/phone.html";
+					}
 				}
 			}
-		} 
 		}
 
 	</script>
