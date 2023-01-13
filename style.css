@@ -425,6 +425,22 @@ button[type=button] {
 	color: white;
 }
 
+button[type=button-2] {
+	align-self: center;
+	align-items: center;
+	width: 300px;
+	font-size: 16px;
+	border: 2px solid rgb(63, 63, 63);
+	background-color: black;
+	border-radius: 5px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	display: block;
+	margin: auto;
+	color: white;
+}
+
 button[type=button]:hover {
 	align-self: center;
 	align-items: center;
@@ -439,7 +455,22 @@ button[type=button]:hover {
 	display: block;
 	margin: auto;
 	color: white;
+}
 
+button[type=button-2]:hover {
+	align-self: center;
+	align-items: center;
+	width: 300px;
+	font-size: 16px;
+	border: 2px solid rgb(63, 63, 63);
+	background-color: rgb(63, 63, 63);
+	border-radius: 5px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	display: block;
+	margin: auto;
+	color: white;
 }
 
 label {
