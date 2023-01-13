@@ -319,8 +319,8 @@
 					if (Vfinal != VfinalSolved) {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
-						let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
-						VinitialOutput.value = VinitialSolved
+						let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
+						VfinalOutput.value = VfinalSolved
 					}
 
 				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && time != "u" && deltaX != "u") {
