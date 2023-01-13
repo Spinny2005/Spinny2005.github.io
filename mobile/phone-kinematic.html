@@ -131,11 +131,11 @@
 
 				
 				//Requires v0, a, and t
-				if (Vinitial != "u" && acceleration != "u" && time != "u") {
+				if (Vinitial != "u" && acceleration != "u" && time != "u" && deltaX == "u" && Vfinal == "u") {
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
 					Vfinal = VfinalSolved
 					let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
-					if (VfinalOutput.value != VfinalSolved && VfinalOutput.value != '') {
+					if (VfinalOutput.value != VfinalSolved && VfinalOutput.value != '' && deltaXOutput.value != deltaXSolved && deltaXOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						VfinalOutput.value = VfinalSolved
@@ -143,11 +143,11 @@
 					}
 					
 				//Requires v, a, and t
-				} else if (Vfinal != "u" && acceleration != "u" && time != "u") {
+				} else if (Vfinal != "u" && acceleration != "u" && time != "u" && deltaX == "u" && Vinitial == "u") {
 					let VinitialSolved = Number(Vfinal) - (Number(acceleration) * Number(time))
 					Vinitial = VinitialSolved
 					let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
-					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '') {
+					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '' && deltaXOutput.value != deltaXSolved && deltaXOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						VinitialOutput.value = VinitialSolved
@@ -155,11 +155,11 @@
 					}
 					
 				//Requires v, v0, and t
-				} else if (Vfinal != "u" && Vinitial != "u" && time != "u") {
+				} else if (Vfinal != "u" && Vinitial != "u" && time != "u" && deltaX == "u" && acceleration == "u") {
 					let accelerationSolved = (Number(Vfinal) - Number(Vinitial)) / Number(time)
 					acceleration = accelerationSolved
 					let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
-					if (accelerationOutput.value != accelerationSolved && accelerationOutput.value != '') {
+					if (accelerationOutput.value != accelerationSolved && accelerationOutput.value != '' && deltaXOutput.value != deltaXSolved && deltaXOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						accelerationOutput.value = accelerationSolved
@@ -167,11 +167,11 @@
 					}
 					
 				//Requires v, v0, and a
-				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u") {
+				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && deltaX == "u" && time == "u") {
 					let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
 					time = timeSolved
 					let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
-					if (timeOutput.value != timeSolved && timeOutput.value != '') {
+					if (timeOutput.value != timeSolved && timeOutput.value != '' && deltaXOutput.value != deltaXSolved && deltaXOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						timeOutput.value = timeSolved
@@ -179,11 +179,11 @@
 					}
 					
 				//Requires x, v0, and a
-				} else if (Vinitial != "u" && acceleration != "u" && deltaX != "u") {
+				} else if (Vinitial != "u" && acceleration != "u" && deltaX != "u" && Vfinal == "u" && time == "u") {
 					let VfinalSolved = Math.sqrt(Math.abs((Number(Vinitial) * Number(Vinitial)) + (2 * Number(acceleration) * Number(deltaX))))
 					Vfinal = VfinalSolved
 					let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
-					if (VfinalOutput.value != VfinalSolved && VfinalOutput.value != '') {
+					if (VfinalOutput.value != VfinalSolved && VfinalOutput.value != '' && timeOutput.value != timeSolved && timeOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						VfinalOutput.value = VfinalSolved
@@ -191,11 +191,11 @@
 					}
 					
 				//Requires v, a, and v0
-				} else if (Vinitial != "u" && acceleration != "u" && Vfinal != "u") {
+				} else if (Vinitial != "u" && acceleration != "u" && Vfinal != "u" && deltaX == "u" && time == "u") {
 					let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
 					deltaX = deltaXSolved
 					let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
-					if (deltaXOutput.value != deltaXSolved && deltaXOutput.value != '') {
+					if (deltaXOutput.value != deltaXSolved && deltaXOutput.value != '' && timeOutput.value != timeSolved && timeOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						deltaXOutput.value = deltaXSolved
@@ -203,11 +203,11 @@
 					}
 					
 				//Requires x, v, and a
-				} else if (deltaX != "u" && acceleration != "u" && Vfinal != "u") {
+				} else if (deltaX != "u" && acceleration != "u" && Vfinal != "u" && Vinitial == "u" && time == "u") {
 					let VinitialSolved = Math.sqrt(Math.abs((Number(Vfinal) * Number(Vfinal)) - (2 * Number(acceleration) * Number(deltaX))))
 					Vinitial = VinitialSolved
 					let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
-					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '') {
+					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '' && timeOutput.value != timeSolved && timeOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						VinitialOutput.value = VinitialSolved
@@ -215,11 +215,11 @@
 					}
 					
 				//Requires x, v0, and v
-				} else if (Vinitial != "u" && deltaX != "u" && Vfinal != "u") {
+				} else if (Vinitial != "u" && deltaX != "u" && Vfinal != "u" && acceleration == "u" && time == "u") {
 					let accelerationSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(deltaX))
 					acceleration = accelerationSolved
 					let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
-					if (accelerationOutput.value != accelerationSolved && accelerationOutput.value != '') {
+					if (accelerationOutput.value != accelerationSolved && accelerationOutput.value != '' && timeOutput.value != timeSolved && timeOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						accelerationOutput.value = accelerationSolved
@@ -227,11 +227,11 @@
 					}
 					
 				//Requires x, v0, and t
-				} else if (Vinitial != "u" && deltaX != "u" && time != "u") {
+				} else if (Vinitial != "u" && deltaX != "u" && time != "u" && acceleration == "u" && Vfinal == "u") {
 					let accelerationSolved = ((2 * Number(deltaX)) - (2 * Number(Vinitial) * Number(time))) / (Number(time) * Number(time))
 					acceleration = accelerationSolved
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
-					if (accelerationOutput.value != accelerationSolved && accelerationOutput.value != '') {
+					if (accelerationOutput.value != accelerationSolved && accelerationOutput.value != '' && VfinalOutput.value != VfinalSolved && VfinalOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						accelerationOutput.value = accelerationSolved
@@ -239,11 +239,11 @@
 					}
 					
 				//Requires x, a and t
-				} else if (acceleration != "u" && deltaX != "u" && time != "u") {
+				} else if (acceleration != "u" && deltaX != "u" && time != "u" && Vinitial == "u" && Vfinal == "u") {
 					let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
 					Vinitial = VinitialSolved
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
-					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '') {
+					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '' && VfinalOutput.value != VfinalSolved && VfinalOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						VinitialOutput.value = VinitialSolved
@@ -251,7 +251,7 @@
 					}
 					
 				//Requires v0, a and x
-				} else if (acceleration != "u" && deltaX != "u" && Vinitial != "u") {
+				} else if (acceleration != "u" && deltaX != "u" && Vinitial != "u" && time == "u" && Vfinal == "u") {
 					let a = 0.5 * Number(acceleration)
 					let b = Number(Vinitial)
 					let c = Number(deltaX) * -1
@@ -264,12 +264,67 @@
 					}
 					time = timeSolved
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
-					if (timeOutput.value != timeSolved && timeOutput.value != '') {
+					if (timeOutput.value != timeSolved && timeOutput.value != '' && VfinalOutput.value != VfinalSolved && VfinalOutput.value != '') {
 						div.innerHTML = "The values you entered are impossible. Please try again."
 					} else {
 						timeOutput.value = timeSolved
 						VfinalOutput.value = VfinalSolved
 					}
+				
+				//If statements for 4 inputs
+				//DeltaX is unknown
+				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && time != "u" && deltaX == "u") {
+					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
+					if (Vfinal != VfinalSolved) {
+						div.innerHTML = "The values you entered are impossible. Please try again."
+					} else {
+						let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
+						deltaXOutput.value = deltaXSolved
+					}
+				//Time is unknown
+				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && time == "u" && deltaX != "u") {
+					let VfinalSolved = Math.sqrt(Math.abs((Number(Vinitial) * Number(Vinitial)) + (2 * Number(acceleration) * Number(deltaX))))
+					if (Vfinal != VfinalSolved) {
+						div.innerHTML = "The values you entered are impossible. Please try again."
+					} else {
+						let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
+						timeOutput.value = timeSolved
+					}
+
+				//Acceleration is unknown
+				} else if (Vfinal != "u" && Vinitial != "u" && acceleration == "u" && time != "u" && deltaX != "u") {
+					let accelerationSolved = ((2 * Number(deltaX)) - (2 * Number(Vinitial) * Number(time))) / (Number(time) * Number(time))
+					acceleration = accelerationSolved
+					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
+					if (Vfinal != VfinalSolved) {
+						div.innerHTML = "The values you entered are impossible. Please try again."
+					} else {
+						accelerationOutput.value = accelerationSolved
+					}
+
+				//Vinitial is unknown
+				} else if (Vfinal != "u" && Vinitial == "u" && acceleration != "u" && time != "u" && deltaX != "u") {
+					let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
+					Vinitial = VinitialSolved
+					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
+					if (Vfinal != VfinalSolved) {
+						div.innerHTML = "The values you entered are impossible. Please try again."
+					} else {
+						VinitialOutput.value = VinitialSolved
+					}
+
+				//Vfinal is unknown
+				} else if (Vfinal == "u" && Vinitial != "u" && acceleration != "u" && time != "u" && deltaX != "u") {
+					let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
+					if (Vfinal != VfinalSolved) {
+						div.innerHTML = "The values you entered are impossible. Please try again."
+					} else {
+						let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
+						VinitialOutput.value = VinitialSolved
+					}
+
+				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && time != "u" && deltaX != "u") {
+					div.innerHTML += "All inputs are known. Leave one blank to solve for it."
 				} else {
 					div.innerHTML += "Unsolveable. Please enter a valid variable to solve for."
 				}
