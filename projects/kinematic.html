@@ -241,6 +241,19 @@
 						VinitialOutput.value = VinitialSolved
 						VfinalOutput.value = VfinalSolved
 					}
+				
+				//Requires v, t, and x
+				} else if (Vfinal != "u" && time != "u" && deltaX != "u" && Vinitial == "u" && acceleration == "u") {
+					let VinitialSolved = (Number(deltaX) - (0.5 * Number(Vfinal) * Number(time))) / Number(time)
+					Vinitial = VinitialSolved
+					let accelerationSolved = ((2 * Number(deltaX)) - (2 * Number(Vinitial) * Number(time))) / (Number(time) * Number(time))
+					if (VinitialOutput.value != VinitialSolved && VinitialOutput.value != '' && accelerationOutput.value != accelerationSolved && accelerationOutput.value != '') {
+						div.innerHTML = "The values you entered are impossible. Please try again."
+					} else {
+						VinitialOutput.value = VinitialSolved
+						accelerationOutput.value = accelerationSolved
+					}
+
 					
 				//Requires v0, a and x
 				} else if (acceleration != "u" && deltaX != "u" && Vinitial != "u" && time == "u" && Vfinal == "u") {
