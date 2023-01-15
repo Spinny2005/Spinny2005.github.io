@@ -514,3 +514,8 @@ div {
 		transform: translateX(0);
 	}
 }
+
+p img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}

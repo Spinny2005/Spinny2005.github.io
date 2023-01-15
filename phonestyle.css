@@ -603,3 +603,8 @@ div {
 	color: white;
 	text-decoration: none;
 }
+
+p img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
