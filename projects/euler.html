@@ -14,15 +14,15 @@
 
 <body>
 	<script defer>
-        let details = navigator.userAgent;
-        let regexp = /android|iphone|kindle|ipad/i;
-        let isMobileDevice = regexp.test(details);
-        if (isMobileDevice) {
-            window.onload = function () {
-                window.location.href = (document.URL).replace("/projects/", "/mobile/phone-");
-            }
-        } 
-    </script>
+		let details = navigator.userAgent;
+		let regexp = /android|iphone|kindle|ipad/i;
+		let isMobileDevice = regexp.test(details);
+		if (isMobileDevice) {
+			window.onload = function () {
+				window.location.href = (document.URL).replace("/projects/", "/mobile/phone-");
+			}
+		} 
+	</script>
 	<header>
 		<a href="../index.html">
 			<h1>euler's method calculator</h1>
@@ -31,15 +31,16 @@
 		<nav>
 			<ul>
 				<li><a href="../index.html">BACK</a></li>
-                <li><a href="https://github.com/Spinny2005/EulerSolver" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+				<li><a href="https://github.com/Spinny2005/EulerSolver" target="_blank"
+						rel="noopener noreferrer">SOURCE</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<hr>
 		<h2>ABOUT THIS PROJECT</h2>
-			<p>This project is intended to help you solve calculus problems that require you to use Euler's Method.
-			</p>
+		<p>This project is intended to help you solve calculus problems that require you to use Euler's Method.
+		</p>
 		<br>
 		<form>
 			<label for="y-input">enter a y value on the function:</label>
@@ -53,7 +54,7 @@
 			<label for="derivative-input">enter the derivative of the function:</label>
 			<input type="text" id="derivative-input" name="derivative-input"><br>
 			<button type="button" id="save-button">ENTER</button>
-		</form> 
+		</form>
 		<hr>
 		<div class="rounded-bg-list-4">
 			<div id="display-area"><br></div>
@@ -69,7 +70,7 @@
 				let stepSize = document.getElementById('stepSize-input').value;
 				let derivative = document.getElementById('derivative-input').value;
 				let j = 0
-				derivative = derivative.replace('^',"**")
+				derivative = derivative.replace('^', "**")
 				if (y != '' && x != '' && stepCount != '' && stepSize != '' && derivative != '') {
 					try {
 						x = Number(x)
@@ -79,26 +80,26 @@
 						y = String(y)
 					} catch (error) {
 						derivative = 'u'
-					try {
-						y = Number(y)
-					} catch (error) {
-						y = 'u'
-					}
-					try {
-						x = Number(x)
-					} catch (error) {
-						x = 'u'
-					}
-					try {
-						stepCount = Number(stepCount)
-					} catch (error) {
-						stepCount = 'u'
-					}
-					try {
-						stepSize = Number(stepSize)
-					} catch (error) {
-						stepSize = 'u'
-					}
+						try {
+							y = Number(y)
+						} catch (error) {
+							y = 'u'
+						}
+						try {
+							x = Number(x)
+						} catch (error) {
+							x = 'u'
+						}
+						try {
+							stepCount = Number(stepCount)
+						} catch (error) {
+							stepCount = 'u'
+						}
+						try {
+							stepSize = Number(stepSize)
+						} catch (error) {
+							stepSize = 'u'
+						}
 					}
 					if (!isNaN(y) && !isNaN(x) && !isNaN(stepCount) && !isNaN(stepSize) && !isNaN(m)) {
 						div.innerHTML = ""
@@ -113,7 +114,7 @@
 							x = Number(x) + Number(stepSize)
 
 							let initialEquation = (String(m) + "x + " + eval(String(m) + "* -(" + eval(String(x) + "-" + String(stepSize)) + ") + " + String(y)))
-							let solvableEquation = ((Number(m) * Number(x)) + Number(m) * -(Number(x)-Number(stepSize)) + Number(y))
+							let solvableEquation = ((Number(m) * Number(x)) + Number(m) * -(Number(x) - Number(stepSize)) + Number(y))
 
 							y = eval(solvableEquation)
 
@@ -121,7 +122,7 @@
 							output = output + "<br><br>Y Coordinate after " + i + " step(s): " + String(y)
 							output = output + "<br><br>Coordinates: (" + String(x) + ", " + String(y) + ")"
 							div.innerHTML = output + "<br><br><br>"
-							
+
 							x = Number(x)
 							y = Number(y)
 							m = eval(derivative)

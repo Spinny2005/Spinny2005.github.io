@@ -13,41 +13,42 @@
 </head>
 
 <body>
-    <script defer>
-        let details = navigator.userAgent;
-        let regexp = /android|iphone|kindle|ipad/i;
-        let isMobileDevice = regexp.test(details);
-        if (!isMobileDevice) {
-            window.onload = function () {
-                window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
-            }
-        } 
-    </script>
+	<script defer>
+		let details = navigator.userAgent;
+		let regexp = /android|iphone|kindle|ipad/i;
+		let isMobileDevice = regexp.test(details);
+		if (!isMobileDevice) {
+			window.onload = function () {
+				window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
+			}
+		} 
+	</script>
 	<header>
 		<a href="../index.html">
 			<h1 class="h1-size-adjust">quadratic</h1>
-            <h1 class="h1-size-adjust-1">formula</h1>
-            <h1 class="h1-size-adjust-2">calculator</h1>
+			<h1 class="h1-size-adjust-1">formula</h1>
+			<h1 class="h1-size-adjust-2">calculator</h1>
 		</a>
 		<h2>by spencer boggs</h2>
-        <br>
+		<br>
 		<nav>
 			<ul>
 				<li><a href="../phone.html">BACK</a></li>
-            </ul>
-        </nav>
-        <br>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/Spinny2005/QuadraticFormula" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+			</ul>
+		</nav>
+		<br>
+		<nav>
+			<ul>
+				<li><a href="https://github.com/Spinny2005/QuadraticFormula" target="_blank"
+						rel="noopener noreferrer">SOURCE</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<hr>
 		<h2>ABOUT THIS PROJECT</h2>
-			<p>This project is intended to help you solve any problem that requires you to use the Quadratic Formula.
-			</p>
+		<p>This project is intended to help you solve any problem that requires you to use the Quadratic Formula.
+		</p>
 		<br>
 		<form>
 			<label>equation: ax^2 + bx + c</label><br><br>
@@ -59,7 +60,7 @@
 			<input type="text" id="c-input" name="c-input"><br>
 
 			<button type="button" id="save-button">ENTER</button>
-		</form> 
+		</form>
 		<hr>
 		<div class="rounded-bg-list-6">
 			<div id="display-area"><br></div>
@@ -95,10 +96,10 @@
 					} else if (negativeInSqrt == true) {
 						let x1 = "(-" + String(b) + " + " + String(solvedSqrt) + ") / " + String(2 * Number(a))
 						let x2 = "(-" + String(b) + " - " + String(solvedSqrt) + ") / " + String(2 * Number(a))
-						div.innerHTML += "Plus Sqrt: x = " + String(x1) + "<br><br>Minus Sqrt: x = " + String(x2)	
+						div.innerHTML += "Plus Sqrt: x = " + String(x1) + "<br><br>Minus Sqrt: x = " + String(x2)
 					}
-					
-					
+
+
 				}
 			});
 		</script>

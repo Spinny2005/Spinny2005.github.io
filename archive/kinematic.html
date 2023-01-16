@@ -14,15 +14,15 @@
 
 <body>
 	<script defer>
-        let details = navigator.userAgent;
-        let regexp = /android|iphone|kindle|ipad/i;
-        let isMobileDevice = regexp.test(details);
-        if (isMobileDevice) {
-            window.onload = function () {
-                window.location.href = (document.URL).replace("/archive/", "/archive/phone-");
-            }
-        } 
-    </script>
+		let details = navigator.userAgent;
+		let regexp = /android|iphone|kindle|ipad/i;
+		let isMobileDevice = regexp.test(details);
+		if (isMobileDevice) {
+			window.onload = function () {
+				window.location.href = (document.URL).replace("/archive/", "/archive/phone-");
+			}
+		} 
+	</script>
 	<header>
 		<a href="../index.html">
 			<h1>kinematic equation calculator</h1>
@@ -31,16 +31,17 @@
 		<nav>
 			<ul>
 				<li><a href="../index.html">BACK</a></li>
-                <li><a href="https://github.com/Spinny2005/KineSolve" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+				<li><a href="https://github.com/Spinny2005/KineSolve" target="_blank"
+						rel="noopener noreferrer">SOURCE</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<hr>
 		<h2>ABOUT THIS PROJECT</h2>
-			<p>This project is intended to help you solve physics problems that require you to use kinematic equations.
-			</p>
-			<button id="new-kinematics" type="button-2">NEW VERSION</button>
+		<p>This project is intended to help you solve physics problems that require you to use kinematic equations.
+		</p>
+		<button id="new-kinematics" type="button-2">NEW VERSION</button>
 		<br>
 		<form>
 			<label>leave unknown values blank</label><br><br>
@@ -59,7 +60,7 @@
 			<input type="text" id="solve-input" name="solve-input"><br>
 
 			<button type="button" id="save-button">ENTER</button>
-		</form> 
+		</form>
 		<hr>
 		<div class="rounded-bg-list-4">
 			<div id="display-area"><br></div>
@@ -111,7 +112,7 @@
 				} else {
 					solveFor = solveFor
 				}
-				
+
 				if (solveFor != "u") {
 					if ((solveFor == "v") && (String(Vinitial) != "u") && (acceleration != "u") && (time != "u")) {
 						let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
@@ -175,7 +176,7 @@
 						div.innerHTML += "<br><br>Equation: x = v0t + 1/2 * at^2"
 						div.innerHTML += "<br><br>x = " + String(Vinitial) + " * " + String(time) + " + (1/2) * " + String(acceleration) + " * " + String(time) + "^2"
 						div.innerHTML += "<br><br>" + String(deltaXSolved) + " = " + String(Vinitial) + " * " + String(time) + " + (1/2) * " + String(acceleration) + " * " + String(time) + "^2"
-						
+
 					} else if (solveFor == 'a' && Vinitial != "u" && deltaX != "u" && time != "u") {
 						let accelerationSolved = ((2 * Number(deltaX)) - (2 * Number(Vinitial) * Number(time))) / (Number(time) * Number(time))
 						div.innerHTML += "a = " + accelerationSolved + " m/s^2"
@@ -196,11 +197,11 @@
 						let c = Number(deltaX) * -1
 						var d
 						var timeSolved
-						if (((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c)))/(2 * a)) < 0) {
-							timeSolved = Number((-b - Math.sqrt(Math.abs((b * b) - 4 * a * c)))/(2 * a))
+						if (((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c))) / (2 * a)) < 0) {
+							timeSolved = Number((-b - Math.sqrt(Math.abs((b * b) - 4 * a * c))) / (2 * a))
 							d = "neg"
-					    } else {
-							timeSolved = Number((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c)))/(2 * a))
+						} else {
+							timeSolved = Number((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c))) / (2 * a))
 							d = "pos"
 						}
 						div.innerHTML += "t = " + timeSolved + " s"
@@ -208,7 +209,7 @@
 						div.innerHTML += "<br><br>" + String(deltaX) + " = " + String(Vinitial) + " * t + (1/2) * " + String(acceleration) + " * t^2"
 						if (d == "pos") {
 							div.innerHTML += "<br><br>" + String(timeSolved) + " = -" + String(b) + " + sqrt(" + String(b) + "^2 -4(" + String(a) + ")(" + String(c) + "))/(2 * " + String(a) + ")"
-						} else if (d == "neg"){
+						} else if (d == "neg") {
 							div.innerHTML += "<br><br>" + String(timeSolved) + " = -" + String(b) + " - sqrt(" + String(b) + "^2 -4(" + String(a) + ")(" + String(c) + "))/(2 * " + String(a) + ")"
 						}
 

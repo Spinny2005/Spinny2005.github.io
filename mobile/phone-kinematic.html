@@ -13,42 +13,44 @@
 </head>
 
 <body>
-    <script defer>
-        let details = navigator.userAgent;
-        let regexp = /android|iphone|kindle|ipad/i;
-        let isMobileDevice = regexp.test(details);
-        if (!isMobileDevice) {
-            window.onload = function () {
-                window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
-            }
-        } 
-    </script>
+	<script defer>
+		let details = navigator.userAgent;
+		let regexp = /android|iphone|kindle|ipad/i;
+		let isMobileDevice = regexp.test(details);
+		if (!isMobileDevice) {
+			window.onload = function () {
+				window.location.href = (document.URL).replace("/mobile/phone-", "/projects/");
+			}
+		} 
+	</script>
 	<header>
 		<a href="../index.html">
 			<h1 class="h1-size-adjust">kinematic</h1>
-            <h1 class="h1-size-adjust-1">equation</h1>
-            <h1 class="h1-size-adjust-2">calculator</h1>
+			<h1 class="h1-size-adjust-1">equation</h1>
+			<h1 class="h1-size-adjust-2">calculator</h1>
 		</a>
 		<h2>by spencer boggs</h2>
-        <br>
+		<br>
 		<nav>
 			<ul>
 				<li><a href="../phone.html">BACK</a></li>
-            </ul>
-        </nav>
-        <br>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/Spinny2005/KineSolve" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
+			</ul>
+		</nav>
+		<br>
+		<nav>
+			<ul>
+				<li><a href="https://github.com/Spinny2005/KineSolve" target="_blank"
+						rel="noopener noreferrer">SOURCE</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
 		<hr>
 		<h2>ABOUT THIS PROJECT</h2>
-			<p>This project is the updated version of the original kinematic equation solver. You can access the original version here:
-			</p>
-			<button id="old-kinematics" type="button-2">OLD VERSION</button>
+		<p>This project is the updated version of the original kinematic equation solver. You can access the original
+			version here:
+		</p>
+		<button id="old-kinematics" type="button-2">OLD VERSION</button>
 		<br>
 		<form>
 			<label>leave unknown values blank</label><br><br>
@@ -65,7 +67,7 @@
 
 			<button type="button" id="save-button">ENTER</button><br>
 			<button type="button" id="clear-button">CLEAR</button>
-		</form> 
+		</form>
 		<hr>
 		<div class="rounded-bg-list-4">
 			<div id="display-area"><br></div>
@@ -129,7 +131,7 @@
 					deltaX = "u"
 				}
 
-				
+
 				//Requires v0, a, and t
 				if (Vinitial != "u" && acceleration != "u" && time != "u" && deltaX == "u" && Vfinal == "u") {
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
@@ -141,8 +143,8 @@
 						VfinalOutput.value = VfinalSolved
 						deltaXOutput.value = deltaXSolved
 					}
-					
-				//Requires v, a, and t
+
+					//Requires v, a, and t
 				} else if (Vfinal != "u" && acceleration != "u" && time != "u" && deltaX == "u" && Vinitial == "u") {
 					let VinitialSolved = Number(Vfinal) - (Number(acceleration) * Number(time))
 					Vinitial = VinitialSolved
@@ -153,8 +155,8 @@
 						VinitialOutput.value = VinitialSolved
 						deltaXOutput.value = deltaXSolved
 					}
-					
-				//Requires v, v0, and t
+
+					//Requires v, v0, and t
 				} else if (Vfinal != "u" && Vinitial != "u" && time != "u" && deltaX == "u" && acceleration == "u") {
 					let accelerationSolved = (Number(Vfinal) - Number(Vinitial)) / Number(time)
 					acceleration = accelerationSolved
@@ -165,8 +167,8 @@
 						accelerationOutput.value = accelerationSolved
 						deltaXOutput.value = deltaXSolved
 					}
-					
-				//Requires v, v0, and a
+
+					//Requires v, v0, and a
 				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && deltaX == "u" && time == "u") {
 					let timeSolved = (Number(Vfinal) - Number(Vinitial)) / Number(acceleration)
 					time = timeSolved
@@ -177,8 +179,8 @@
 						timeOutput.value = timeSolved
 						deltaXOutput.value = deltaXSolved
 					}
-					
-				//Requires x, v0, and a
+
+					//Requires x, v0, and a
 				} else if (Vinitial != "u" && acceleration != "u" && deltaX != "u" && Vfinal == "u" && time == "u") {
 					let VfinalSolved = Math.sqrt(Math.abs((Number(Vinitial) * Number(Vinitial)) + (2 * Number(acceleration) * Number(deltaX))))
 					Vfinal = VfinalSolved
@@ -189,8 +191,8 @@
 						VfinalOutput.value = VfinalSolved
 						timeOutput.value = timeSolved
 					}
-					
-				//Requires v, a, and v0
+
+					//Requires v, a, and v0
 				} else if (Vinitial != "u" && acceleration != "u" && Vfinal != "u" && deltaX == "u" && time == "u") {
 					let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
 					deltaX = deltaXSolved
@@ -201,8 +203,8 @@
 						deltaXOutput.value = deltaXSolved
 						timeOutput.value = timeSolved
 					}
-					
-				//Requires x, v, and a
+
+					//Requires x, v, and a
 				} else if (deltaX != "u" && acceleration != "u" && Vfinal != "u" && Vinitial == "u" && time == "u") {
 					let VinitialSolved = Math.sqrt(Math.abs((Number(Vfinal) * Number(Vfinal)) - (2 * Number(acceleration) * Number(deltaX))))
 					Vinitial = VinitialSolved
@@ -213,8 +215,8 @@
 						VinitialOutput.value = VinitialSolved
 						timeOutput.value = timeSolved
 					}
-					
-				//Requires x, v0, and v
+
+					//Requires x, v0, and v
 				} else if (Vinitial != "u" && deltaX != "u" && Vfinal != "u" && acceleration == "u" && time == "u") {
 					let accelerationSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(deltaX))
 					acceleration = accelerationSolved
@@ -225,8 +227,8 @@
 						accelerationOutput.value = accelerationSolved
 						timeOutput.value = timeSolved
 					}
-					
-				//Requires x, v0, and t
+
+					//Requires x, v0, and t
 				} else if (Vinitial != "u" && deltaX != "u" && time != "u" && acceleration == "u" && Vfinal == "u") {
 					let accelerationSolved = ((2 * Number(deltaX)) - (2 * Number(Vinitial) * Number(time))) / (Number(time) * Number(time))
 					acceleration = accelerationSolved
@@ -237,8 +239,8 @@
 						accelerationOutput.value = accelerationSolved
 						VfinalOutput.value = VfinalSolved
 					}
-					
-				//Requires x, a and t
+
+					//Requires x, a and t
 				} else if (acceleration != "u" && deltaX != "u" && time != "u" && Vinitial == "u" && Vfinal == "u") {
 					let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
 					Vinitial = VinitialSolved
@@ -249,8 +251,8 @@
 						VinitialOutput.value = VinitialSolved
 						VfinalOutput.value = VfinalSolved
 					}
-				
-				//Requires v, t, and x
+
+					//Requires v, t, and x
 				} else if (Vfinal != "u" && time != "u" && deltaX != "u" && Vinitial == "u" && acceleration == "u") {
 					let VinitialSolved = (Number(deltaX) - (0.5 * Number(Vfinal) * Number(time))) / Number(time)
 					Vinitial = VinitialSolved
@@ -262,18 +264,18 @@
 						accelerationOutput.value = accelerationSolved
 					}
 
-					
-				//Requires v0, a and x
+
+					//Requires v0, a and x
 				} else if (acceleration != "u" && deltaX != "u" && Vinitial != "u" && time == "u" && Vfinal == "u") {
 					let a = 0.5 * Number(acceleration)
 					let b = Number(Vinitial)
 					let c = Number(deltaX) * -1
 					var d
 					var timeSolved
-					if (((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c)))/(2 * a)) < 0) {
-						timeSolved = Number((-b - Math.sqrt(Math.abs((b * b) - 4 * a * c)))/(2 * a))
-				    } else {
-						timeSolved = Number((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c)))/(2 * a))
+					if (((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c))) / (2 * a)) < 0) {
+						timeSolved = Number((-b - Math.sqrt(Math.abs((b * b) - 4 * a * c))) / (2 * a))
+					} else {
+						timeSolved = Number((-b + Math.sqrt(Math.abs((b * b) - 4 * a * c))) / (2 * a))
 					}
 					time = timeSolved
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
@@ -283,9 +285,9 @@
 						timeOutput.value = timeSolved
 						VfinalOutput.value = VfinalSolved
 					}
-				
-				//If statements for 4 inputs
-				//DeltaX is unknown
+
+					//If statements for 4 inputs
+					//DeltaX is unknown
 				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && time != "u" && deltaX == "u") {
 					let VfinalSolved = Number(Vinitial) + (Number(acceleration) * Number(time))
 					if (Vfinal != VfinalSolved) {
@@ -294,7 +296,7 @@
 						let deltaXSolved = ((Number(Vfinal) * Number(Vfinal)) - (Number(Vinitial) * Number(Vinitial))) / (2 * Number(acceleration))
 						deltaXOutput.value = deltaXSolved
 					}
-				//Time is unknown
+					//Time is unknown
 				} else if (Vfinal != "u" && Vinitial != "u" && acceleration != "u" && time == "u" && deltaX != "u") {
 					let VfinalSolved = Math.sqrt(Math.abs((Number(Vinitial) * Number(Vinitial)) + (2 * Number(acceleration) * Number(deltaX))))
 					if (Vfinal != VfinalSolved) {
@@ -304,7 +306,7 @@
 						timeOutput.value = timeSolved
 					}
 
-				//Acceleration is unknown
+					//Acceleration is unknown
 				} else if (Vfinal != "u" && Vinitial != "u" && acceleration == "u" && time != "u" && deltaX != "u") {
 					let accelerationSolved = ((2 * Number(deltaX)) - (2 * Number(Vinitial) * Number(time))) / (Number(time) * Number(time))
 					acceleration = accelerationSolved
@@ -315,7 +317,7 @@
 						accelerationOutput.value = accelerationSolved
 					}
 
-				//Vinitial is unknown
+					//Vinitial is unknown
 				} else if (Vfinal != "u" && Vinitial == "u" && acceleration != "u" && time != "u" && deltaX != "u") {
 					let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
 					Vinitial = VinitialSolved
@@ -326,7 +328,7 @@
 						VinitialOutput.value = VinitialSolved
 					}
 
-				//Vfinal is unknown
+					//Vfinal is unknown
 				} else if (Vfinal == "u" && Vinitial != "u" && acceleration != "u" && time != "u" && deltaX != "u") {
 					let VinitialSolved = (Number(deltaX) - 0.5 * Number(acceleration) * Number(time) * Number(time)) / Number(time)
 					if (Vinitial != VinitialSolved) {

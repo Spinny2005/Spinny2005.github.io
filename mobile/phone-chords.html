@@ -3,13 +3,13 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Subpage for Musical Chords Game">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../phonestyle.css">
-	<link rel="icon" href="../icons/0.png">
-	<title>Musical Chords Game</title>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="description" content="Subpage for Musical Chords Game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../phonestyle.css">
+    <link rel="icon" href="../icons/0.png">
+    <title>Musical Chords Game</title>
+    <meta charset="utf-8">
 </head>
 
 <body>
@@ -23,51 +23,53 @@
             }
         } 
     </script>
-	<header>
-		<a href="../index.html">
-			<h1 class="h1-size-adjust">musical</h1>
+    <header>
+        <a href="../index.html">
+            <h1 class="h1-size-adjust">musical</h1>
             <h1 class="h1-size-adjust-1">chords</h1>
             <h1 class="h1-size-adjust-2">game</h1>
-		</a>
-		<h2>by spencer boggs</h2>
+        </a>
+        <h2>by spencer boggs</h2>
         <br>
-		<nav>
-			<ul>
-				<li><a href="../phone.html">BACK</a></li>
+        <nav>
+            <ul>
+                <li><a href="../phone.html">BACK</a></li>
             </ul>
         </nav>
         <br>
         <nav>
             <ul>
-                <li><a href="https://github.com/Spinny2005/ChordGame" target="_blank" rel="noopener noreferrer">SOURCE</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<hr>
-		<h2>ABOUT THIS PROJECT</h2>
-			<p>This project is designed to help musicians learn their chords by testing to see if they correctly type the notes in each chord.
-			</p>
-		<br>
+                <li><a href="https://github.com/Spinny2005/ChordGame" target="_blank"
+                        rel="noopener noreferrer">SOURCE</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <hr>
+        <h2>ABOUT THIS PROJECT</h2>
+        <p>This project is designed to help musicians learn their chords by testing to see if they correctly type the
+            notes in each chord.
+        </p>
+        <br>
         <form>
-			<label>enter the notes of the chord</label><br>
+            <label>enter the notes of the chord</label><br>
             <label>seperate the notes with spaces</label><br><br>
-			<button type="button" id="start-button">START</button><br>
-		</form> 
+            <button type="button" id="start-button">START</button><br>
+        </form>
         <div class="rounded-bg-list-5">
-			<div id="display-area"><br></div>
-		</div>
+            <div id="display-area"><br></div>
+        </div>
         <form>
-			<label for="notes-input">enter notes:</label>
+            <label for="notes-input">enter notes:</label>
             <input type="text" id="notes-input" name="notes-input"><br>
-			<button type="button" id="save-button">CHECK</button>
+            <button type="button" id="save-button">CHECK</button>
         </form>
         <div id="display-area-1"><br></div>
         <script>
-			const startButton = document.getElementById('start-button');
-			const saveButton = document.getElementById('save-button');
-			const div = document.getElementById('display-area');
-			const div1 = document.getElementById('display-area-1');
+            const startButton = document.getElementById('start-button');
+            const saveButton = document.getElementById('save-button');
+            const div = document.getElementById('display-area');
+            const div1 = document.getElementById('display-area-1');
             const input = document.getElementById('notes-input');
             var randomExtra
             var note1
@@ -145,8 +147,8 @@
                 else if (randomExtra == extraNotes[9]) {
                     correctAnswer = note1 + " " + noteb3 + " " + note5 + " " + noteb7 + " " + note2
                 }
-                
-                
+
+
                 let Answer = document.getElementById('notes-input').value;
                 Answer = Answer.replace("Bb", "A#")
                 Answer = Answer.replace("Db", "C#")
