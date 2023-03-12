@@ -60,6 +60,10 @@
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+	}
+	
 body {
 	margin: 0px 0px 0px 0px;
 	color: #e8e6e3;
