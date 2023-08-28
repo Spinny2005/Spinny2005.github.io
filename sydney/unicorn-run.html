@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Unicorn Run 💕</title>
+    <script defer src="../index.js"></script>
+    <style>
+        html {
+            zoom: 1.5;
+        }
+        body {
+            background-color: #e287b9;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 50px;
+            margin: 0;
+            padding-top: 20px;
+            color: #ffffff;
+        }
+        #score {
+            margin: 0;
+            
+            margin-bottom: 50px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            color: #ffffff;
+        }
+        #highscore {
+            margin: 0;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            color: #ffffff;
+        }
+        #message {
+            margin: 0;
+            margin-bottom: -100px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            color: #ffffff;
+        }
+        .game {
+            max-width: 1000px;
+            height: 400px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-top: 10px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            h1 {
+                font-size: 30px;
+            }
+            #score {
+                font-size: 20px;
+            }
+            #highscore {
+                font-size: 20px;
+            }
+
+            .game {
+                zoom: 0.6;
+            }
+
+            #unicorn {
+                margin-left: -40px;
+            }
+        }
+
+        @keyframes jump {
+            0% {
+                top: 350px;
+            }
+
+            30% {
+                top: 290px;
+            }
+
+            50% {
+                top: 250px;
+            }
+
+            80% {
+                top: 290px;
+            }
+
+            100% {
+                top: 350px;
+            }
+        }
+
+        #unicorn {
+            left: 100px;
+            width: 50px;
+            height: 50px;
+            background-image: url(../icons/Unicorn.gif);
+            background-size: 50px 50px;
+            background-color: #e287b9;
+            position: relative;
+            top: 350px;
+        }
+
+        .jump {
+            animation: jump 0.3s linear;
+        }
+
+        #poop {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: 320px;
+            background-image: url(../icons/Poop.png);
+            background-size: 30px 30px;
+            left: calc(100% - 30px);
+
+            animation: block 1.5s linear infinite;
+        }
+
+        @keyframes block {
+            0% {
+                left: calc(100% - 30px);
+            }
+
+            100% {
+                left: -30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <h1>💕 unicorn game 💕</h1>
+        <h2 id="highscore">highscore: 0</h2>
+        <h2 id="score">current score: 0</h2>
+        <h3 id="message">dont touch the poop!</h3>
+        <div class="elements">
+            <div id="unicorn"></div>
+            <div id="poop"></div>
+        </div>
+    </div>
+    <script>
+        const unicorn = document.getElementById("unicorn");
+        const poop = document.getElementById("poop");
+        var messages = ["yay :)", "nice job!", "you did it! :)", "yippee!", "hooray!", ":)", "you're so good at this!", "❤️❤️❤️", "💕💕💕", "🫶🫶🫶", "😍😍😍", "🥰🥰🥰"]
+        messages.sort(function () {
+            return 0.5 - Math.random();
+        });
+
+        function jump() {
+            if (unicorn.classList != "jump") {
+                unicorn.classList.add("jump");
+
+                setTimeout(function () {
+                    unicorn.classList.remove("jump");
+                }, 300);
+            }
+        }
+
+        let gameOver = false;
+        let score = 0;
+        let highscore = 0;
+        let isPassHandled = false;
+
+        let isAlive = setInterval(function () {
+            let unicornTop = parseInt(window.getComputedStyle(unicorn).getPropertyValue("top"));
+
+            let poopLeft = parseInt(window.getComputedStyle(poop).getPropertyValue("left"));
+            if (poopLeft < 90 && poopLeft > 60 && unicornTop >= 310) {
+                poop.style.animation = "none";
+                poop.style.left = poopLeft + "px";
+                unicorn.style.top = unicornTop + "px";
+                gameOver = true;
+                score = 0;
+                document.getElementById("score").innerHTML = "current score: " + score;
+                document.getElementById("message").innerHTML = "💩 poop 💩";
+            } else if (poopLeft <= -20 && !isPassHandled) {
+                score += 10;
+                document.getElementById("score").innerHTML = "current score: " + score;
+                isPassHandled = true; 
+
+                document.getElementById("message").innerHTML = messages[0];
+                messages.push(messages.shift());
+
+                setTimeout(function () {
+                    isPassHandled = false; 
+                }, 500); 
+            }
+
+            if (score > highscore) {
+                highscore = score;
+                document.getElementById("highscore").innerHTML = "highscore: " + highscore;
+            }
+
+        }, 10);
+
+        document.addEventListener("keydown", function (event) {
+            if (event.code == "Space" || event.code == "ArrowUp") {
+                if (gameOver) {
+                    poop.style.animation = "block 1.5s linear infinite";
+                    poop.style.display = "block";
+                    unicorn.style.top = "350px";
+                    gameOver = false;
+                } else {
+                    jump();
+                }
+            }
+        });
+        
+        document.addEventListener("touchstart", function (event) {
+            if (gameOver) {
+                poop.style.animation = "block 1.5s linear infinite";
+                poop.style.display = "block";
+                unicorn.style.top = "350px";
+                gameOver = false;
+            } else {
+                jump();
+            }
+        });
+    </script>
+</body>
+
+</html>
