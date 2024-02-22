@@ -8,6 +8,7 @@
     <title>Discord Images Slideshow</title>
     <style>
         body {
+            font-size: 30px;
             background-color: #1e1e1e;
             color: #ffffff;
             font-family: Arial, sans-serif;
@@ -24,9 +25,22 @@
         }
 
         .image-div img {
-            max-width: 100%;
+            min-width: 30%;
+            /* Adjust the minimum width as needed */
+            max-width: 70%;
+            /* Adjust the maximum width as needed */
+            min-height: 20vh;
+            /* Adjust the minimum height as needed */
+            max-height: 65vh;
+            /* Adjust the maximum height as needed */
+            width: auto;
             height: auto;
+            margin: 0 auto;
+            /* Centers the image horizontally */
+            padding: 10px;
         }
+
+
 
         button {
             background-color: transparent;
@@ -61,9 +75,13 @@
         }
 
         .arrow-div {
-            /* align items in line */
+            position: fixed;
+            bottom: 10%;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -95,27 +113,29 @@
             "2023-10-15 10-45.png",
             "2024-02-09 19-20.png",
             "Unknown 03-26.png",
+            "2023-09-07 19-33.png",
 
         ];
 
         let messages = [
             "Terra Incognita - 02/20/2024 10:58 AM PST",
-            "Terra Incognita - 02/11/2024 07:38 AM PST",
-            "Terra Incognita - 01/29/2024 07:38 PM PST",
+            "Terra Incognita - 02/11/2024 07:38 PM PST",
+            "Terra Incognita - 01/29/2024 07:31 PM PST",
             "Terra Incognita - 02/14/2024 06:00 PM PST",
             "Terra Incognita - 02/15/2024 10:20 AM PST",
             "Terra Incognita - 08/29/2023 08:43 AM PST",
             "Terra Incognita - 08/29/2023 08:55 AM PST",
-            "Group Chat - 23:51 AM PST",
+            "Group Chat - 11:51 PM PST",
             "Terra Incognita - 10/16/2023 01:20 AM PST",
             "Terra Incognita - 10/15/2023 10:45 AM PST",
             "Terra Incognita - 02/09/2024 07:20 PM PST",
-            "Cottage Cave - 03:26 AM PST"
+            "Cottage Cave - 03:26 AM PST",
+            "Terra Incognita - 09/07/2023 07:33 PM PST",
 
         ];
 
         let currentIndex = 0;
-        let messageDiv = document.getElementById("message");
+        /* let messageDiv = document.getElementById("message"); */
         let imageElement = document.getElementById("image");
         let imageNumberDiv = document.getElementById("image-number");
 
@@ -125,8 +145,8 @@
         /* Function to display message and image */
         function showMessageAndImage(index) {
             /* Display message based on index (you can customize this logic) */
-            messageDiv.textContent = messages[index];
-
+            /* messageDiv.textContent = messages[index];
+ */
             /* Update image source */
             imageElement.src = "discord-images/" + images[index];
 
