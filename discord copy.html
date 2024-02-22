@@ -25,9 +25,9 @@
         }
 
         .image-div img {
-            min-width: 30%;
+            min-width: 15%;
             /* Adjust the minimum width as needed */
-            max-width: 70%;
+            max-width: 90%;
             /* Adjust the maximum width as needed */
             min-height: 20vh;
             /* Adjust the minimum height as needed */
@@ -87,7 +87,7 @@
 </head>
 
 <body>
-    <div id="message"></div>
+    <!-- <div id="message"></div> -->
     <br>
     <div class="image-div">
         <img id="image" src="discord-images/default.jpg">
@@ -99,43 +99,12 @@
     </div>
 
     <script>
-        /* Create an array of image filenames */
-        let images = [
-            "2024-02-20 10-58.png",
-            "2024-02-11 07-38.png",
-            "2024-01-29 19-31.png",
-            "2024-02-14 18-00.png",
-            "2024-02-15 10-20.png",
-            "2023-08-29 08-43.png",
-            "2023-08-29 08-55.png",
-            "Unknown 23-51.png",
-            "2023-10-16 01-20.png",
-            "2023-10-15 10-45.png",
-            "2024-02-09 19-20.png",
-            "Unknown 03-26.png",
-            "2023-09-07 19-33.png",
-
-        ];
-
-        let messages = [
-            "Terra Incognita - 02/20/2024 10:58 AM PST",
-            "Terra Incognita - 02/11/2024 07:38 PM PST",
-            "Terra Incognita - 01/29/2024 07:31 PM PST",
-            "Terra Incognita - 02/14/2024 06:00 PM PST",
-            "Terra Incognita - 02/15/2024 10:20 AM PST",
-            "Terra Incognita - 08/29/2023 08:43 AM PST",
-            "Terra Incognita - 08/29/2023 08:55 AM PST",
-            "Group Chat - 11:51 PM PST",
-            "Terra Incognita - 10/16/2023 01:20 AM PST",
-            "Terra Incognita - 10/15/2023 10:45 AM PST",
-            "Terra Incognita - 02/09/2024 07:20 PM PST",
-            "Cottage Cave - 03:26 AM PST",
-            "Terra Incognita - 09/07/2023 07:33 PM PST",
-
-        ];
+        let images = [];
+        for (let i = 1; i <= 53; i++) {
+            images.push("image" + i + ".png");
+        }
 
         let currentIndex = 0;
-        /* let messageDiv = document.getElementById("message"); */
         let imageElement = document.getElementById("image");
         let imageNumberDiv = document.getElementById("image-number");
 
@@ -144,9 +113,6 @@
 
         /* Function to display message and image */
         function showMessageAndImage(index) {
-            /* Display message based on index (you can customize this logic) */
-            /* messageDiv.textContent = messages[index];
- */
             /* Update image source */
             imageElement.src = "discord-images/" + images[index];
 
@@ -165,7 +131,19 @@
             currentIndex = (currentIndex + 1) % images.length;
             showMessageAndImage(currentIndex);
         });
+
+        /* Add event listener for arrow key navigation */
+        document.addEventListener("keydown", function (event) {
+            if (event.keyCode === 37) { // Left arrow key
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showMessageAndImage(currentIndex);
+            } else if (event.keyCode === 39) { // Right arrow key
+                currentIndex = (currentIndex + 1) % images.length;
+                showMessageAndImage(currentIndex);
+            }
+        });
     </script>
+
 </body>
 
 </html>
