@@ -99,31 +99,10 @@
     </div>
 
     <script>
-        
         let images = [];
-        let imageFolder = "discord-images/";
-        // now we get all of the names from the folder
-        fetch(imageFolder)
-            .then(response => response.text())
-            .then(text => {
-                // we create a new html element to hold the text
-                let parser = new DOMParser();
-                let htmlDocument = parser.parseFromString(text, "text/html");
-                // we get all the links from the html
-                let links = htmlDocument.links;
-                // we loop through the links
-                for (let i = 0; i < links.length; i++) {
-                    // we get the href of the link
-                    let link = links[i].href;
-                    // we check if the link is a file
-                    if (link.endsWith(".png") || link.endsWith(".jpg")) {
-                        // we add the file name to the images array
-                        images.push(link.split("/").pop());
-                    }
-                }
-                // we display the first image
-                showMessageAndImage(currentIndex);
-            });
+        for (let i = 1; i <= 52; i++) {
+            images.push("image" + i + ".png");
+        }
 
         let currentIndex = 0;
         let imageElement = document.getElementById("image");
